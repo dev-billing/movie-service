@@ -1,0 +1,26 @@
+spring:
+    config:
+        activate:
+            on-profile: test
+
+    datasource:
+        url: jdbc:h2:mem:~/movie-reservation
+        driver-class-name: org.h2.Driver
+        username: sa
+        password:
+
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true
+
+logging:
+    level:
+        org.springframework.orm.jpa: DEBUG                          # JPA 로깅
+        org.springframework.transaction: DEBUG                      # 트랜잭션 로깅
+        org.springframework.jdbc.datasource.DataSourceTransactionManager: DEBUG
+        org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
+        org.hibernate.type.descriptor.sql.BasicBinder: TRACE        # 바인딩 파라미터 로깅
